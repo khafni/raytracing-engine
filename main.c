@@ -40,7 +40,7 @@ int main(void)
 	t_plane p = plane(tuple(0, 0, 0), tuple(0, 1, 0), tuple(128, 128, 128));
 	t_triangle tr = triangle(tuple(-8, 5, -3), tuple(0, 5, 7), tuple(8, 5, -3), tuple(0, 0, 255));
 	t_square sq = square(tuple(0, 3, 0), tuple(0, 1, 0), 15, tuple(0, 255, 255));
-	t_cylinder cy = cylinder(tuple(0, 10, 0), tuple(0,0,1), 3, 100, tuple(255, 0, 0));
+	t_cylinder cy = cylinder(tuple(0, 10, 0), tuple(0,1,0), 3, 100, tuple(255, 0, 0));
 
 	t_object obj = object(&s, SHAPE_TYPE_SPHERE);
 	t_object obj1 = object(&s1, SHAPE_TYPE_SPHERE);
@@ -64,7 +64,7 @@ int main(void)
 	garr_add(w.lights, &l);
 	w.ambient = am_light(tuple(255, 255, 255), .1);
 
-	t_camera c = camera(500, 500, M_PI / 2.0, t);
+	t_camera c = camera(1500, 1500, M_PI / 2.0, t);
 	c.to = tuple(0, 1, 0);
 	/* matrix_4x4_debug(c.transform); */
 	t_bmp b = render(c, w);
