@@ -16,7 +16,16 @@ t_object		object(void *shape, t_shape_type type)
 {
 	t_object o;
 
-	o.shape = shape;
-	o.type = type;
+	o = malloc(sizeof(struct s_object));
+	o->shape = shape;
+	o->type = type;
 	return (o);
+}
+
+void			object_destroy(void *o_)
+{
+	t_object o;
+
+	o = (t_object)o_;
+	free(o);
 }

@@ -15,7 +15,6 @@
 t_intersection	intersect(void *shape, t_shape_type type, t_ray r)
 {
 	t_intersection inter;
-
 	if (type == SHAPE_TYPE_SPHERE)
 		inter = sphere_intersect(r, shape);
 	else if(type == SHAPE_TYPE_PLANE)

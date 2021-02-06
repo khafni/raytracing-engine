@@ -19,7 +19,7 @@
 
 
 
-typedef struct s_light	t_light;
+typedef struct s_light	*t_light;
 
 struct		s_light
 {
@@ -29,6 +29,7 @@ struct		s_light
 };
 
 t_light		light(t_tup position, t_tup color, float intensity);
+void		light_destroy(void *l_);
 
 /*
 ** ambient lighting

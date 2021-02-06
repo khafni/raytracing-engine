@@ -68,3 +68,25 @@ t_tup		matrix_4x4_multiply_by_tuple(t_matrice m, t_tup p)
 	matrix_destroy(tmp_result);
 	return (r);
 }
+t_matrice	matrix_multiply_n_destroy_parms(t_matrice a, t_matrice b)
+{
+	t_matrice	m;
+	int			i;
+	int			j;
+
+	j = 0;
+	m = matrice(a->n_rows, b->n_columns);
+	while (j < a->n_rows)
+	{
+		i = 0;
+		while (i < b->n_columns)
+		{
+			set_cell(m, i, j, matrix_mutiply_aux(a, b, j, i));
+			i++;
+		}
+		j++;
+	}
+	matrix_destroy(a);
+	matrix_destroy(b);
+	return (m);
+}

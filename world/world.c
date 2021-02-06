@@ -15,11 +15,24 @@
 t_world		empty_world(void)
 {
 	t_world w;
-
-	w.objects = empty_garr_64(NULL, sizeof(t_object));
-	w.lights = empty_garr_64(NULL, sizeof(t_light));
-	w.ambient = am_light(tuple(255, 255, 255), 0);
+	
+	w = malloc(sizeof(struct s_world));
+	w->objects = empty_arrptr_create(object_destroy);
+	w->lights = empty_arrptr_create(light_destroy);
+	w->cameras = empty_arrptr_create(camera_destroy);
+	w->ambient = am_light(tuple(255, 255, 255), 0);
 	return (w);
+}
+
+void	world_destroy(void *w_)
+{
+	t_world w;
+
+	w = (t_world)w_;
+	arrptr_destroy(w->objects);
+	arrptr_destroy(w->lights);
+	arrptr_destroy(w->cameras);
+	free(w);
 }
 
 /* t_array		intersect_world(t_world w, t_ray r)
@@ -54,10 +67,10 @@ t_intersection		intersect_world(t_world w, t_ray r)
 	i = 0;	
 	max = 900000000;
 	intr.type = NO_INTERSECTION;
-	while (i < w.objects->len)
+	while (i < w->objects->len)
 	{
-		obj = *(t_object*)garr_get(w.objects, i);
-		tmp = intersect(obj.shape, obj.type, r);
+		obj = (t_object)arrptr_get(w->objects, i);
+		tmp = intersect(obj->shape, obj->type, r);
 		if (tmp.type != NO_INTERSECTION && tmp.value > 0
 		&& tmp.value < max)
 		{
@@ -78,10 +91,10 @@ int		is_intersect_world(t_world w, t_ray r)
 
 	is_intersect = 0;
 	i = 0;	
-	while (i < w.objects->len)
+	while (i < w->objects->len)
 	{
-		obj = *(t_object*)garr_get(w.objects, i);
-		tmp = intersect(obj.shape, obj.type, r);
+		obj = (t_object)arrptr_get(w->objects, i);
+		tmp = intersect(obj->shape, obj->type, r);
 		if (tmp.type != NO_INTERSECTION && tmp.value > 0)
 			is_intersect = 1;	
 		i++;

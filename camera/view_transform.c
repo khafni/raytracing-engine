@@ -18,6 +18,7 @@ t_matrice	view_transform(t_tup from, t_tup to, t_tup up)
 	t_tup		forward;
 	t_tup		left;
 	t_tup		true_up;
+	t_matrice	tmp;
 
 	orient = identity_matrix(4, 4);
 	//forward = tup_norm(tup_sub(to, from));	
@@ -35,10 +36,10 @@ t_matrice	view_transform(t_tup from, t_tup to, t_tup up)
 	set_cell(orient, 0, 2, -forward.x);
 	set_cell(orient, 1, 2, -forward.y);
 	set_cell(orient, 2, 2, -forward.z);
-	return (matrix_multiply(orient, translation(-from.x, -from.y, -from.z)));
+	return (matrix_multiply_n_destroy_parms(orient, translation(-from.x, -from.y, -from.z)));		
 }
 
-void		calc_pixel_size(t_camera *c)
+void		calc_pixel_size(t_camera c)
 {
 	float aspect;
 	float half_view;
@@ -58,31 +59,16 @@ void		calc_pixel_size(t_camera *c)
 	c->pixel_size = (c->half_width * 2) / c->hsize;
 }
 
-t_camera	camera(int hsize, int vsize, float fov, t_matrice tr)
-{
-	t_camera c;
-
-	c.hsize = hsize;
-	c.vsize = vsize;
-	c.fov = fov;
-	c.transform = tr;
-	c.tran_inv = inverse(c.transform);
-	c.origin = matrix_4x4_multiply_by_tuple(c.tran_inv,
-	point(0, 0, 0));
-	calc_pixel_size(&c);
-	return (c);
-}
-
 t_w_crds	calc_w_crds(t_camera c, int px, int py)
 {
 	float		xoffset;
 	float		yoffset;
 	t_w_crds	world_coordinates;
 
-	xoffset = ((float)px + .5f) * c.pixel_size;
-	yoffset = ((float)py + .5f) * c.pixel_size;
-	world_coordinates.world_x = c.half_width - xoffset;
-	world_coordinates.world_y = c.half_height - yoffset;
+	xoffset = ((float)px + .5f) * c->pixel_size;
+	yoffset = ((float)py + .5f) * c->pixel_size;
+	world_coordinates.world_x = c->half_width - xoffset;
+	world_coordinates.world_y = c->half_height - yoffset;
 	return (world_coordinates);
 }
 
@@ -93,8 +79,8 @@ t_ray		ray_for_pixel(t_camera c, int px, int py)
 	t_tup		direction;
 
 	w_crds = calc_w_crds(c, px, py);
-	pixel = matrix_4x4_multiply_by_tuple(c.tran_inv,
+	pixel = matrix_4x4_multiply_by_tuple(c->tran_inv,
 	point(w_crds.world_x, w_crds.world_y, -1));
-	direction = tup_norm(tup_sub(pixel, c.origin));
-	return (ray(c.origin, direction));
+	direction = tup_norm(tup_sub(pixel, c->origin));
+	return (ray(c->origin, direction));
 }

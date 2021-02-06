@@ -25,7 +25,7 @@ t_bmp		render(t_camera c, t_world w)
     
     i = 0;
     j = 0;
- 	canvas = create_pixels_array(c.hsize, c.vsize);
+ 	canvas = create_pixels_array(c->hsize, c->vsize);
 	
 	while (i < canvas.height)
 	{

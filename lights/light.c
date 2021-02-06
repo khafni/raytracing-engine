@@ -16,10 +16,19 @@ t_light		light(t_tup position, t_tup color, float intensity)
 {
 	t_light l;
 
-	l.position = position;
-	l.color = color;
-	l.intensity = intensity;
+	l = malloc(sizeof(struct s_light));
+	l->position = position;
+	l->color = color;
+	l->intensity = intensity;
 	return (l);
+}
+
+void		light_destroy(void *l_)
+{
+	t_light l;
+
+	l = (t_light)l_;
+	free(l);
 }
 
 t_alight	am_light(t_tup color, float ratio)

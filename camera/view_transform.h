@@ -17,7 +17,7 @@
 
 t_matrice	view_transform(t_tup from, t_tup to, t_tup up);
 
-typedef struct s_camera	t_camera;
+typedef struct s_camera	*t_camera;
 
 struct		s_camera
 {
@@ -33,13 +33,16 @@ struct		s_camera
 	t_tup		to;
 };
 
-t_camera	camera(int hsize, int vsize, float fov, t_matrice tr);
-
 typedef struct
 {
 	float	world_x;
 	float	world_y;
 }			t_w_crds;
+
+t_w_crds	calc_w_crds(t_camera c, int px, int py);
+void		calc_pixel_size(t_camera c);
+t_camera	camera(int hsize, int vsize, float fov, t_matrice tr);
+void		camera_destroy(void *c_);
 
 t_ray		ray_for_pixel(t_camera c, int px, int py);
 

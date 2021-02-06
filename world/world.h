@@ -17,18 +17,19 @@
 # include "../camera/view_transform.h"
 
 
-typedef struct s_world	t_world;
+typedef struct s_world	*t_world;
 
 struct	s_world
 {
-	t_camera	*cam;
+	t_arrptr	cameras;
 	t_alight	ambient;
-	t_array		objects;
-	t_array		lights;
+	t_arrptr	objects;
+	t_arrptr	lights;
 };
 
 t_world	empty_world(void);
 t_world default_world(void);
+void	world_destroy(void *w_);
 //t_array intersect_world(t_world w, t_ray r);
 t_intersection		intersect_world(t_world w, t_ray r);
 int		is_intersect_world(t_world w, t_ray r);
