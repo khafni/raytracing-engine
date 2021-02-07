@@ -32,7 +32,7 @@ t_intersection triangle_intersect(t_ray r, void *t_)
 
 	t = ((t_triangle )t_);
 	t_plane test_plane = plane(t->pa, t->normal, t->color);
-	intr = plane_intersect(r, &test_plane);
+	intr = plane_intersect(r, test_plane);
 	if (intr.type == NO_INTERSECTION)
 		return (intr);
 		

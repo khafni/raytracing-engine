@@ -6,13 +6,13 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 16:53:02 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/20 15:18:15 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:27:09 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_sphere			sphere(t_tup center, int radius, t_tup color)
+t_sphere			sphere(t_tup center, float radius, t_tup color)
 {
 	t_sphere s;
 

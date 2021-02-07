@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:15:30 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/22 17:09:15 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/07 17:58:57 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ t_intersection		square_intersect(t_ray r, void *sq_)
 	t_tup v = tup_sub(intr.p, sq->center);
 	float proj1 = dotproduct(v, width);
 	float proj2 = dotproduct(v, height);
-	if ((proj1 - (sq->side_size / 2) < .0001 && proj1 - (- sq->side_size / 2) > .0001)
-	&& (proj2 - (sq->side_size / 2) < .0001 && proj2 - (-sq->side_size / 2)) > .0001)
-	{
+	if ((proj1 - (sq->side_size / 2) < 0 && proj1 - (- sq->side_size / 2) > 0)
+	&& (proj2 - (sq->side_size / 2) < 0 && proj2 - (-sq->side_size / 2)) > 0)
+/* 	if ((proj1 < (sq->side_size / 2) && proj1 > (- sq->side_size / 2)) && (proj2 < (sq->side_size / 2) && proj2 > (-sq->side_size / 2)))
+ */
+if (((proj1 - (sq->side_size / 2.0)) < 0.0001 && (proj1 - (- sq->side_size / 2.0)) > 0.0001) && ((proj2 - (sq->side_size / 2.0)) < 0.001) && ((proj2 - (-sq->side_size / 2.0)) > 0.0001))
+{
 		intr.shape = sq_;
 		intr.type = SHAPE_TYPE_SQUARE;
 		//intr = intersection(&sq, intr.value, SHAPE_TYPE_SQUARE);

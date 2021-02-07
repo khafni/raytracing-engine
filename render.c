@@ -17,7 +17,7 @@ t_tup		color_at(t_world w, t_ray r)
 	return (c);
 }
 
-t_bmp		render(t_camera c, t_world w)
+void		render_bmp(t_camera c, t_world w)
 {
 	t_bmp	canvas;
 	int		i;
@@ -26,7 +26,6 @@ t_bmp		render(t_camera c, t_world w)
     i = 0;
     j = 0;
  	canvas = create_pixels_array(c->hsize, c->vsize);
-	
 	while (i < canvas.height)
 	{
 		j = 0;
@@ -38,5 +37,27 @@ t_bmp		render(t_camera c, t_world w)
 		}
 		i++;
 	}
-	return (canvas);
+	write_bmp("screenshot.bmp", &canvas); 
+}
+
+t_image     render_mlx_image(t_camera c, t_world w, void *mlx_ptr)
+{
+	t_image	im;
+	int		i;
+	int		j;
+    
+    i = 0;
+    j = 0;
+	im = mlx_create_img(mlx_ptr, w->r_width, w->r_height);
+	while (i < im->height)
+	{
+		while (j < im->width)
+		{
+			img_set_pixel(im, j, i,
+			create_color(color_at(w, ray_for_pixel(c, j, i))));
+			j++;
+		}
+		i++;
+	}
+	return (im);
 }

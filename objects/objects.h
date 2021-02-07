@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 18:18:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/23 15:01:13 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:27:17 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ struct				s_sphere
 /*
 ** sphere object constructor
 */
-t_sphere			sphere(t_tup center, int radius, t_tup color);
+t_sphere			sphere(t_tup center, float radius, t_tup color);
 void				sphere_destroy(void *s_);
 
 typedef struct s_sphere_equat_sol	t_sphere_equat_sol;

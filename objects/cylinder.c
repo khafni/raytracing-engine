@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 14:58:06 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/05 17:52:07 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/07 16:25:20 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,17 @@ t_cylinder	cylinder(t_tup center, t_tup normal, float cylind_diameter, float cyl
 	cy->center = center;
 	cy->normal = normal;
 	cy->cylind_diameter = cylind_diameter;
-	cy->cylind_height = cylind_diameter;
+	cy->cylind_height = cylind_height;
 	cy->color = color;
 	return (cy);
+}
+
+void				cylinder_destroy(void *cy_)
+{
+	t_cylinder	cy;
+
+	cy = (t_cylinder)cy_;
+	free(cy);
 }
 
 /* t_intersection		cylinder_intersect(t_ray r, void *cy_); */

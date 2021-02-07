@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 09:52:52 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/20 11:39:34 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/07 14:50:05 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ struct	s_world
 	t_alight	ambient;
 	t_arrptr	objects;
 	t_arrptr	lights;
+	int			r_width;
+	int			r_height;
 };
 
 t_world	empty_world(void);
