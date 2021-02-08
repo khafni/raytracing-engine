@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:27:29 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/21 17:24:45 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/08 17:52:25 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ struct		s_camera
 	t_matrice	tran_inv;
 	t_tup		origin;
 	t_tup		to;
+	t_tup		from;
 };
 
 typedef struct

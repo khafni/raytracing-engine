@@ -2,15 +2,16 @@
 
 t_camera	camera(int hsize, int vsize, float fov, t_matrice tr)
 {
-	t_camera c;
+	t_camera	c;
+	float		aspect_ratio;
 
 	c = malloc(sizeof(struct s_camera));
-	c->hsize = hsize;
 	c->vsize = vsize;
+	c->hsize = hsize;
 	c->fov = fov;
 	c->transform = tr;
 	c->tran_inv = inverse(c->transform);
-	c->origin = matrix_4x4_multiply_by_tuple(c->tran_inv,
+	c->origin = matrix_4x4_multiply_by_tuple(c->transform,
 	point(0, 0, 0));
 	calc_pixel_size(c);
 	return (c);

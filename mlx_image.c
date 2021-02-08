@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 18:25:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/07 19:32:16 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/08 09:43:56 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void		img_set_pixel(t_image img, int x, int y, int value)
     char *tar;
 
     tar = img->data + y * img->size_line + x * (img->bits_per_pixel / 8);
-    *(int*)tar = value;
+    *(unsigned int*)tar = value;
 }

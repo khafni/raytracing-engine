@@ -66,7 +66,12 @@ int main(int argc, char **argv)
 
     //arrptr_add(w->objects, object(sphere(tuple(0, 0, 0), 1, tuple(255, 0, 255)), SHAPE_TYPE_SPHERE));
 	render_bmp(c, w);
+    void *mlx_p = mlx_init();
+    void *mlx_window = mlx_new_window(mlx_p, w->r_width, w->r_height, "window");
 
+    t_image img = render_mlx_image(c, w, mlx_p);
+    mlx_put_image_to_window(mlx_p, mlx_window, img->mlx_img, 0, 0);
+    mlx_loop(mlx_p); 
     //camera_destroy(c);
     world_destroy(w);
 
