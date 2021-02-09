@@ -58,12 +58,28 @@ t_image     render_mlx_image(t_camera c, t_world w, void *mlx_ptr)
 		{
 			img_set_pixel(im, j, i_inc,
 			create_color(color_at(w, ray_for_pixel(c, j, i))));
-			/* img_set_pixel(im, j, i,
-			0x00FF0000); */
 			j++;
 		}
 		i_inc++;
 		i--;
 	}
 	return (im);
+}
+
+void        render_mlx_generate_imgs(t_world w)
+{
+	int			i;
+	t_camera	c;
+	void *mlx_p;
+    void *mlx_window;
+
+	w->mlx_ptr = mlx_init();
+	mlx_window = mlx_new_window(mlx_p, w->r_width, w->r_height, "window");
+	i = 0;
+	while (i < w->cameras->len)
+	{
+		c = arrptr_get(w->cameras, i);
+		arrptr_add(w->mlx_images, render_mlx_image(c, w, mlx_p));
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 09:52:52 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/07 14:50:05 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:58:29 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include "../objects/objects.h"
 # include "../lights/light.h"
 # include "../camera/view_transform.h"
+# include "../mlx_image.h"
+# define MLX	0
+# define BMP 1
 
 
 typedef struct s_world	*t_world;
@@ -27,6 +30,10 @@ struct	s_world
 	t_arrptr	lights;
 	int			r_width;
 	int			r_height;
+	t_arrptr	mlx_images;
+	int			is_mlx_or_bmp;
+	void		*mlx_ptr;
+	void		*mlx_window;
 };
 
 t_world	empty_world(void);

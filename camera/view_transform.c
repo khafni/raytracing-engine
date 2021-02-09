@@ -6,13 +6,13 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:28:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/08 18:45:36 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/09 16:00:07 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "view_transform.h"
 
-/* t_matrice	view_transform(t_tup from, t_tup to, t_tup up)
+t_matrice	view_transform(t_tup from, t_tup to, t_tup up)
 {
 	t_matrice	orient;
 	t_tup		forward;
@@ -37,12 +37,10 @@
 	set_cell(orient, 0, 2, -forward.x);
 	set_cell(orient, 1, 2, -forward.y);
 	set_cell(orient, 2, 2, -forward.z);
-	
 	return (matrix_multiply_n_destroy_parms(orient, translation(-from.x, -from.y, -from.z)));
-	//return (matrix_multiply_n_destroy_parms(orient, identity_matrix(4, 4)));	
-} */
+}
 
-t_tup		check_cross(t_tup right, t_tup cam_vector)
+/* t_tup		check_cross(t_tup right, t_tup cam_vector)
 {
 	t_tup	forward;
 
@@ -57,10 +55,10 @@ t_tup		check_cross(t_tup right, t_tup cam_vector)
 	}
 	right = tup_norm(right);
 	return (right);
-}
+} */
 
 
-t_matrice	view_transform(t_tup from, t_tup to, t_tup tmp)
+/* t_matrice	view_transform(t_tup from, t_tup to, t_tup tmp)
 {
 	t_matrice	orient;
 	t_tup		right;
@@ -86,7 +84,7 @@ t_matrice	view_transform(t_tup from, t_tup to, t_tup tmp)
 	set_cell(orient, 2, 3, from.z);
 	//return (matrix_multiply_n_destroy_parms(orient, translation(-from.x, -from.y, -from.z)));
 	return (orient);	
-}
+} */
 
 void		calc_pixel_size(t_camera c)
 {
@@ -119,17 +117,17 @@ t_w_crds	calc_w_crds(t_camera c, int px, int py)
 	float		aspect;
 
 	aspect = (float)c->hsize / (float)c->vsize;
-	xoffset = ((float)px + .5f) * c->pixel_size;
-	yoffset = ((float)py + .5f) * c->pixel_size;
+	xoffset = ((float)py + .5f) * c->pixel_size;
+	yoffset = ((float)px + .5f) * c->pixel_size;
 	world_coordinates.world_x = c->half_width - xoffset;
 	world_coordinates.world_y = c->half_height - yoffset;
 	
-	world_coordinates.world_x = (2 * ((px + 0.5) / c->hsize) - 1) * tan(c->fov / 2) * aspect;
-	world_coordinates.world_y = (1 - 2 * ((py + 0.5) / c->vsize) * tan(c->fov / 2));
+	/* world_coordinates.world_x = (2 * ((px + 0.5) / c->hsize) - 1) * tan(c->fov / 2) * aspect;
+	world_coordinates.world_y = (1 - 2 * ((py + 0.5) / c->vsize) * tan(c->fov / 2)); */
 	return (world_coordinates);
 }
 
-/* t_ray		ray_for_pixel(t_camera c, int px, int py)
+t_ray		ray_for_pixel(t_camera c, int px, int py)
 {
 	t_w_crds	w_crds;
 	t_tup		pixel;	
@@ -140,9 +138,9 @@ t_w_crds	calc_w_crds(t_camera c, int px, int py)
 	point(w_crds.world_x, w_crds.world_y, -1));
 	direction = tup_norm(tup_sub(pixel, c->origin));
 	return (ray(c->origin, direction));
-} */
+}
 
-t_tup		get_direction(int x, int y, t_camera camera)
+/* t_tup		get_direction(int x, int y, t_camera camera)
 {
 	double fov_coeff;
 	double aspect_ratio;
@@ -155,9 +153,9 @@ t_tup		get_direction(int x, int y, t_camera camera)
 		aspect_ratio * fov_coeff;
 	p_y = (1 - 2 * (y + 0.5) / (double)camera->vsize) * fov_coeff;
 	return (tuple(p_x, p_y, 1));
-}
+} */
 
-t_ray		ray_for_pixel(t_camera c, int px, int py)
+/* t_ray		ray_for_pixel(t_camera c, int px, int py)
 {
 	t_tup		pixel;	
 	t_tup		direction;
@@ -167,4 +165,4 @@ t_ray		ray_for_pixel(t_camera c, int px, int py)
 	get_direction(px, py, c));
 	direction = tup_norm(tup_sub(pixel, c->origin));
 	return (ray(c->origin, direction));
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:41:19 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/20 16:53:57 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:41:06 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_world		empty_world(void)
 	w->lights = empty_arrptr_create(light_destroy);
 	w->cameras = empty_arrptr_create(camera_destroy);
 	w->ambient = am_light(tuple(255, 255, 255), 0);
+	w->mlx_images = empty_arrptr_create(mlx_img_destroy);
+	
 	return (w);
 }
 

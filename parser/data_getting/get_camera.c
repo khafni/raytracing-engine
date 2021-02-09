@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 12:47:19 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/08 18:47:36 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/09 15:46:16 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ double	degree_to_radians(double degree)
 {
 	double r;
 
-	//r = (degree * M_PI / 180.0);
-	r = r + 0;
+	r = (degree * M_PI / 180.0);
+	//r = r + 0;
 	return (r);
 }
 
