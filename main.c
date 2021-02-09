@@ -73,6 +73,10 @@ int main(int argc, char **argv)
     mlx_put_image_to_window(mlx_p, mlx_window, img->mlx_img, 0, 0);
     mlx_loop(mlx_p);  */
     //camera_destroy(c);
+    render_mlx_generate_imgs(w);
+    t_image im = arrptr_get(w->mlx_images, 0);
+    mlx_put_image_to_window(w->mlx_ptr, w->mlx_window, im->mlx_img, 0, 0);
+    mlx_loop(w->mlx_ptr);
     world_destroy(w);
 
 	return (0);

@@ -17,12 +17,14 @@ t_tup		color_at(t_world w, t_ray r)
 	return (c);
 }
 
-void		render_bmp(t_camera c, t_world w)
+void		render_bmp(t_world w)
 {
-	t_bmp	canvas;
-	int		i;
-	int		j;
+	t_bmp		canvas;
+	int			i;
+	int			j;
+	t_camera	c;
     
+	c = arrptr_get(w->cameras, 0);
     i = 0;
     j = 0;
  	canvas = create_pixels_array(c->vsize, c->hsize);
@@ -70,16 +72,32 @@ void        render_mlx_generate_imgs(t_world w)
 {
 	int			i;
 	t_camera	c;
-	void *mlx_p;
-    void *mlx_window;
+
 
 	w->mlx_ptr = mlx_init();
-	mlx_window = mlx_new_window(mlx_p, w->r_width, w->r_height, "window");
+	w->mlx_window = mlx_new_window(w->mlx_ptr, w->r_width, w->r_height, "window");
 	i = 0;
 	while (i < w->cameras->len)
 	{
 		c = arrptr_get(w->cameras, i);
-		arrptr_add(w->mlx_images, render_mlx_image(c, w, mlx_p));
+		arrptr_add(w->mlx_images, render_mlx_image(c, w, w->mlx_ptr));
 		i++;
 	}
 }
+
+void        render_mlx(t_world w)
+{
+	
+}
+
+
+/* void        render(int argc, char **argv, t_world w)
+{
+	if (argc == 3)
+		render_bmp(w);
+	else
+	{
+		
+	}
+}
+ */
