@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 11:15:59 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/03 19:26:00 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:48:03 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,5 @@ void		pheap_delete_head_value(t_pheap h);
 **	sorting any array of void pointers
 */
 void		pheap_sort(t_arrptr arr, t_compar cmp);
-
 
 #endif

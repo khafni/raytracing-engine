@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:10:20 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/18 17:13:04 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:51:31 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "../tools.h"
 # include "../CPCA/generic_arrays/garray.h"
 # include "../objects/objects.h"
-
-
 
 typedef struct s_light	*t_light;
 
@@ -54,7 +52,4 @@ struct		s_material
 t_alight	am_light(t_tup color, float ratio);
 
 t_tup		reflect(t_tup in, t_tup normal);
-
-
-
 #endif

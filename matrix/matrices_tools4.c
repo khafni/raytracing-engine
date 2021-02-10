@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrices_tools4.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khafni <khafni@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 12:11:16 by khafni            #+#    #+#             */
-/*   Updated: 2020/12/15 20:23:49 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:53:22 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,11 @@ t_tup		matrix_4x4_multiply_by_tuple(t_matrice m, t_tup p)
 
 	r = tuple(0, 0, 0);
 	tmp = matrice(4, 1);
-	 set_cell(tmp, 0, 0, p.x);
+	set_cell(tmp, 0, 0, p.x);
 	set_cell(tmp, 0, 1, p.y);
 	set_cell(tmp, 0, 2, p.z);
 	set_cell(tmp, 0, 3, p.is_point_or_vector);
-	
 	tmp_result = matrix_multiply(m, tmp);
-	
 	r.x = get_cell(tmp_result, 0, 0);
 	r.y = get_cell(tmp_result, 0, 1);
 	r.z = get_cell(tmp_result, 0, 2);
@@ -68,6 +66,7 @@ t_tup		matrix_4x4_multiply_by_tuple(t_matrice m, t_tup p)
 	matrix_destroy(tmp_result);
 	return (r);
 }
+
 t_matrice	matrix_multiply_n_destroy_parms(t_matrice a, t_matrice b)
 {
 	t_matrice	m;

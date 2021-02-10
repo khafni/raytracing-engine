@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 15:56:18 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:24:43 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:53:38 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ void	check_normal(char *normal_vec, t_sxb sxb)
 		free_split(xyz);
 		return ;
 	}
-	is_vec_normalized(ft_atof(xyz[0]), ft_atof(xyz[1]), ft_atof(xyz[2]), sxb);
 	free_split(xyz);
 }

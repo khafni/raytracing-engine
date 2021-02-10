@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 17:07:15 by khafni            #+#    #+#             */
-/*   Updated: 2021/01/18 17:13:17 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:51:12 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ t_tup		reflect(t_tup in, t_tup normal)
 {
 	return (tup_sub(in, tup_multi(normal, 2 * dotproduct(in, normal))));
 }
-

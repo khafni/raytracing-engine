@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_transformations2.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khafni <khafni@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 16:32:02 by khafni            #+#    #+#             */
-/*   Updated: 2020/12/17 14:36:11 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:52:47 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ t_matrice	shearing(t_shear_parms params)
 t_ray		transform(t_ray r, t_matrice m)
 {
 	t_ray	rr;
-	
+
 	rr = ray(r.origin, r.direction);
 	rr.origin = matrix_4x4_multiply_by_tuple(m, r.origin);
 	rr.direction = matrix_4x4_multiply_by_tuple(m, r.direction);
-	rr.t = r.t; 
+	rr.t = r.t;
 	return (rr);
 }
