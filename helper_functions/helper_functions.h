@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.h                                            :+:      :+:    :+:   */
+/*   helper_functions.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/30 02:39:20 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:53:14 by khafni           ###   ########.fr       */
+/*   Created: 2021/02/11 18:06:00 by khafni            #+#    #+#             */
+/*   Updated: 2021/02/11 18:06:22 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef HELPER_FUNCTIONS_H
+# define HELPER_FUNCTIONS_H
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>

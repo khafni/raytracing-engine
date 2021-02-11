@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 09:08:40 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 09:51:32 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 15:04:47 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ int				triangle_intr_check_proj(t_triangle t)
 	return (0);
 }
 
+void			triangle_intersect_helper(t_triangle t)
+{
+	t->a_test_vec = crossproduct(t->a_to_b_edge, t->a_to_point);
+	t->b_test_vec = crossproduct(t->b_to_c_edge, t->b_to_point);
+	t->c_test_vec = crossproduct(t->c_to_a_edge, t->c_to_point);
+}
+
 t_intersection	triangle_intersect(t_ray r, void *t_)
 {
 	t_triangle		t;
@@ -47,13 +54,14 @@ t_intersection	triangle_intersect(t_ray r, void *t_)
 	test_plane = plane(t->pa, t->normal, t->color);
 	intr = plane_intersect(r, test_plane);
 	if (intr.type == NO_INTERSECTION)
+	{
+		plane_destroy(test_plane);
 		return (intr);
+	}
 	t->a_to_point = tup_sub(intr.p, t->pa);
 	t->b_to_point = tup_sub(intr.p, t->pb);
 	t->c_to_point = tup_sub(intr.p, t->pc);
-	t->a_test_vec = crossproduct(t->a_to_b_edge, t->a_to_point);
-	t->b_test_vec = crossproduct(t->b_to_c_edge, t->b_to_point);
-	t->c_test_vec = crossproduct(t->c_to_a_edge, t->c_to_point);
+	triangle_intersect_helper(t);
 	if (triangle_intr_check_proj(t))
 	{
 		intr.type = SHAPE_TYPE_TRIANGLE;

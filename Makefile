@@ -8,8 +8,14 @@ all:	$(NAME)
 
 $(NAME):
 	@echo "compiling miniRT"
-	@gcc $(FLAGS) $(SRCS) -o $(NAME) $(LFLAGS)
+	@$(MAKE) -C CPCA
+	@gcc $(FLAGS) CPCA/CPCA.a$(SRCS) -o $(NAME) $(LFLAGS)
 
 clean:
-	rm -f $(NAME)
+	@$(MAKE) -C CPCA clean
+fclean:
+	@rm -f $(NAME)
+	@$(MAKE) -C CPCA clean
+	@echo "everything cleaned"
+
 

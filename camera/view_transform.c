@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:28:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 15:42:26 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 17:19:41 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ t_matrice	view_transform(t_tup from, t_tup to, t_tup up)
 
 	orient = identity_matrix(4, 4);
 	forward = tup_norm(to);
-	left = crossproduct(forward, tup_norm(up));
+	left = crossproduct(tuple(0, 1, 0), forward);
 	if (tup_eq(left, tuple(0, 0, 0)))
-		left = crossproduct(forward, tuple(0, 0, 1));
+		left = crossproduct(tuple(0, 0, 1), forward);
 	left = tup_norm(left);
-	true_up = tup_norm(crossproduct(left, forward));
-	set_cell(orient, 0, 0, left.x);
-	set_cell(orient, 1, 0, left.y);
-	set_cell(orient, 2, 0, left.z);
-	set_cell(orient, 0, 1, true_up.x);
-	set_cell(orient, 1, 1, true_up.y);
-	set_cell(orient, 2, 1, true_up.z);
+	true_up = tup_norm(crossproduct(forward, left));
+	set_cell(orient, 0, 0, -true_up.x);
+	set_cell(orient, 1, 0, -true_up.y);
+	set_cell(orient, 2, 0, -true_up.z);
+	set_cell(orient, 0, 1, left.x);
+	set_cell(orient, 1, 1, left.y);
+	set_cell(orient, 2, 1, left.z);
 	set_cell(orient, 0, 2, -forward.x);
 	set_cell(orient, 1, 2, -forward.y);
 	set_cell(orient, 2, 2, -forward.z);
