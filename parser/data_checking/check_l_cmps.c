@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:45:57 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:24:07 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 10:30:19 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		check_n_paramters(char **element, int n)
 int		check_number(char *n_str)
 {
 	int i;
-	
+
 	i = 0;
 	if (!ft_isdigit(n_str[0]) && n_str[0] != '-')
 		return (0);

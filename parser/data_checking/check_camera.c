@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:10:17 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:23:51 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 11:53:42 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	check_camera(t_sxb sxb)
 	check_position(cam_cmps[1], sxb);
 	check_normal(cam_cmps[2], sxb);
 	check_fow(cam_cmps[3], sxb);
+	sxb->cameras_number++;
 	free_split(cam_cmps);
 }

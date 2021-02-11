@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:09:07 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:48:28 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 11:11:07 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define RSTRING_H
 # include <stdio.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "../helper_functions/helper_functions.h"
 
 typedef struct s_rstr *t_rstr;
 

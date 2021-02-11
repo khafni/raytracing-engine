@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinderay.c                                         :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 14:58:06 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 17:50:59 by khafni           ###   ########.fr       */
+/*   Created: 2021/02/11 08:34:46 by khafni            #+#    #+#             */
+/*   Updated: 2021/02/11 10:26:04 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ float cylind_height)
 	return (cy);
 }
 
-void				cylinder_destroy(void *cy_)
+void			cylinder_destroy(void *cy_)
 {
 	t_cylinder	cy;
 
@@ -33,11 +33,12 @@ void				cylinder_destroy(void *cy_)
 	free(cy);
 }
 
-t_cy_equat_sol		cy_eqt_solver(t_ray ray, t_cylinder cy)
+t_cy_equat_sol	cy_eqt_solver(t_ray ray, t_cylinder cy)
 {
 	t_cy_equat_sol	sol;
 	double			radius;
 
+	radius = cy->cylind_diameter / 2;
 	sol.x = tup_sub(ray.origin, cy->center);
 	sol.a = dotproduct(ray.direction,
 	ray.direction) - pow(dotproduct(ray.direction,
@@ -53,27 +54,43 @@ t_cy_equat_sol		cy_eqt_solver(t_ray ray, t_cylinder cy)
 	sol.root1)) + dotproduct(sol.x, cy->normal);
 	sol.m2 = dotproduct(ray.direction, tup_multi(cy->normal,
 	sol.root2)) + dotproduct(sol.x, cy->normal);
+	return (sol);
 }
 
-t_intersection	cylinder_intersect_helper(t_ray r, t_cy_equat_sol s,
+t_intersection	cylinder_intersect_helper(t_ray r, t_cy_equat_sol *s,
 t_cylinder cy)
 {
 	t_intersection	inter;
 
-	inter = intersection(cy, s.root1, SHAPE_TYPE_CYLINDER);
+	if ((s->m1 >= 0 && s->m1 <= cy->cylind_height))
+	{
+		s->root = s->root1;
+		s->m = s->m1;
+	}
+	else if ((s->m2 >= 0 && s->m2 <= cy->cylind_height))
+	{
+		s->root = s->root2;
+		s->m = s->m2;
+	}
+	else
+	{
+		inter.type = NO_INTERSECTION;
+		return (inter);
+	}
+	inter = intersection(cy, s->root, SHAPE_TYPE_CYLINDER);
 	inter.p = position(r, inter.value);
 	inter.color = cy->color;
 	inter.normal = tup_sub(inter.p, cy->center);
-	inter.normal = tup_sub(inter.normal, tup_multi(cy->normal, s.m1));
+	inter.normal = tup_sub(inter.normal, tup_multi(cy->normal, s->m));
 	inter.normal = tup_norm(inter.normal);
 	inter.p = tup_add(inter.p, tup_multi(inter.normal, 0.01));
-
+	return (inter);
 }
 
 t_intersection	cylinder_intersect(t_ray r, void *cy_)
 {
-	t_cylinder cy;
-	t_intersection inter;
+	t_cylinder		cy;
+	t_intersection	inter;
 	double			radius;
 	t_cy_equat_sol	sol;
 
@@ -84,28 +101,6 @@ t_intersection	cylinder_intersect(t_ray r, void *cy_)
 		inter.type = NO_INTERSECTION;
 		return (inter);
 	}
-	if ((sol.m1 >= 0 && sol.m1 <= cy->cylind_height))
-	{
-		inter = intersection(cy_, sol.root1, SHAPE_TYPE_CYLINDER);
-		inter.p = position(r, inter.value);
-		inter.color = cy->color;
-		inter.normal = tup_sub(inter.p, cy->center);
-		inter.normal = tup_sub(inter.normal, tup_multi(cy->normal, sol.m1));
-		inter.normal = tup_norm(inter.normal);
-		inter.p = tup_add(inter.p, tup_multi(inter.normal, 0.01));
-		return (inter);
-	}
-	else if ((sol.m2 >= 0 && sol.m2 <= cy->cylind_height))
-	{
-		inter = intersection(cy_, sol.root1, SHAPE_TYPE_CYLINDER);
-		inter.p = position(r, inter.value);
-		inter.color = cy->color;
-		inter.normal = tup_sub(inter.p, cy->center);
-		inter.normal = tup_sub(inter.normal, tup_multi(cy->normal, sol.m2));
-		inter.normal = tup_norm(inter.normal);
-		inter.p = tup_add(inter.p, tup_multi(inter.normal, 0.01));
-		return (inter);
-	}
-	inter.type = NO_INTERSECTION;
+	inter = cylinder_intersect_helper(r, &sol, cy);
 	return (inter);
 }

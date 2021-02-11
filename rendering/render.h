@@ -6,15 +6,15 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 16:19:20 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 16:27:44 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 09:54:35 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_H
 # define RENDER_H
-# include "world/world.h"
-# include "shading/shading.h"
-# include "bmp.h"
+# include "../world/world.h"
+# include "../shading/shading.h"
+# include "../bmp.h"
 # include "mlx_image.h"
 
 t_tup		color_at(t_world w, t_ray r);

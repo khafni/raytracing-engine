@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:39:50 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/03 17:03:50 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 11:52:41 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PARSER_H
 
 # include "file.h"
-# include "../libft/libft.h"
+# include "../helper_functions/helper_functions.h"
 # include "math.h"
 # include "../world/world.h"
 
@@ -37,6 +37,8 @@ struct	s_syntax
 	t_file	f;
 	int		r;
 	int		a;
+	int		cameras_number;
+	int		does_ambient_exist;
 	char	is_error;
 	char	*error_message;
 };

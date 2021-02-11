@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 16:53:02 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/07 16:27:09 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 08:38:58 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ t_sphere			sphere(t_tup center, float radius, t_tup color)
 	t_sphere s;
 
 	s = malloc(sizeof(struct s_sphere));
-	s->center = center; 
+	s->center = center;
 	s->radius = radius;
 	s->color = color;
 	return (s);
 }
-
 
 void				sphere_destroy(void *s_)
 {
@@ -31,6 +30,7 @@ void				sphere_destroy(void *s_)
 	s = (t_sphere)s_;
 	free(s_);
 }
+
 t_sphere_equat_sol	sphere_eqt_solver(t_ray r, t_sphere s)
 {
 	t_sphere_equat_sol	sol;

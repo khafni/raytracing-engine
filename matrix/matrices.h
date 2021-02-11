@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrices.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khafni <khafni@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 16:29:02 by khafni            #+#    #+#             */
-/*   Updated: 2020/12/17 13:32:36 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 10:31:53 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void		fill_matrice_with_increament(t_matrice m, double value);
 BOOL		matrices_equal(t_matrice m1, t_matrice m2);
 double		minor(t_matrice m, int row, int column);
 double		cofactor(t_matrice m, int row, int column);
-double		matrix_mutiply_aux(t_matrice m1, t_matrice m2, int line, int column);
+double		matrix_mutiply_aux(t_matrice m1, t_matrice m2, int line,
+int column);
 t_matrice	matrix_multiply(t_matrice m1, t_matrice m2);
 t_matrice	matrix_multiply_n_destroy_parms(t_matrice m1, t_matrice m2);
 t_matrice	matrix_multiply_by_scalar(t_matrice a, double s);

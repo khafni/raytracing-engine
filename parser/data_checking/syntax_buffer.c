@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:36:05 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:24:59 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 11:53:01 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_sxb	sxb_create(void)
 	sxb->a = 0;
 	sxb->error_message = NULL;
 	sxb->is_error = 0;
+	sxb->cameras_number = 0;
+	sxb->does_ambient_exist = 0;
 	return (sxb);
 }
 

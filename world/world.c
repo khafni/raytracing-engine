@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:41:19 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 15:55:12 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 12:33:47 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ t_world				empty_world(void)
 void				world_destroy(void *w_)
 {
 	t_world w;
+	int		i;
 
 	w = (t_world)w_;
+	i = 0;
 	arrptr_destroy(w->objects);
 	arrptr_destroy(w->lights);
 	arrptr_destroy(w->cameras);
@@ -38,6 +40,7 @@ void				world_destroy(void *w_)
 	{
 		mlx_destroy_window(w->mlx_ptr, w->mlx_window);
 	}
+	arrptr_destroy(w->mlx_images);
 	free(w);
 }
 

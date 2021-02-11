@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 07:41:04 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 16:37:43 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 12:02:49 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,10 @@ void	parse_syntax(int argc, char **argv)
 	check_rt_file_conf(argv[1], sxb);
 	if (!sxb->r)
 		sxb_set_error(sxb, "Error\nno resolution specified in the .rt");
+	else if (!sxb->cameras_number)
+		sxb_set_error(sxb, "Error\n0 camera specified in the .rt");
+	else if (!sxb->does_ambient_exist || sxb->does_ambient_exist > 1)
+		sxb_set_error(sxb, "Error\nno ambient light specified in the .rt");
 	if (sxb->is_error)
 	{
 		ft_putstr_fd(sxb->error_message, 2);

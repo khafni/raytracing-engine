@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 17:32:19 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:23:40 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 11:53:31 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	check_ambient(t_sxb sxb)
 	}
 	check_light_ratio(*(a_es + 1), sxb);
 	check_color(*(a_es + 2), sxb);
+	sxb->does_ambient_exist++;
 	free_split(a_es);
 }

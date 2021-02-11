@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 18:18:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 17:48:29 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 10:24:40 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,10 @@ t_plane				plane(t_tup center, t_tup normal, t_tup color);
 void				plane_destroy(void *pl_);
 t_intersection		plane_intersect(t_ray r, void *s_);
 
+/*
+** ray/triangle intersection
+*/
+
 typedef struct s_triangle *t_triangle;
 
 struct				s_triangle
@@ -134,6 +138,15 @@ struct				s_triangle
 	t_tup			pa;
 	t_tup			pb;
 	t_tup			pc;
+	t_tup			a_to_b_edge;
+	t_tup			b_to_c_edge;
+	t_tup			c_to_a_edge;
+	t_tup			a_to_point;
+	t_tup			b_to_point;
+	t_tup			c_to_point;
+	t_tup			a_test_vec;
+	t_tup			b_test_vec;
+	t_tup			c_test_vec;
 	t_tup			normal;
 	t_tup			color;
 };
@@ -141,6 +154,21 @@ struct				s_triangle
 t_triangle			triangle(t_tup pa, t_tup pb, t_tup pc, t_tup color);
 void				triangle_destroy(void *tr_);
 t_intersection		triangle_intersect(t_ray r, void *t_);
+
+/*
+**	ray/square intersection
+*/
+
+typedef	struct s_square_base	t_square_base;
+
+struct				s_square_base
+{
+	t_tup			width;
+	t_tup			height;
+	t_tup			v;
+	float			proj1;
+	float			proj2;
+};
 
 typedef struct s_square *t_square;
 
@@ -152,6 +180,7 @@ struct				s_square
 	t_tup			color;
 };
 
+t_square_base		square_base_get(t_ray r, t_square sq, t_intersection intr);
 t_square			square(t_tup center, t_tup n, double s_size, t_tup col);
 void				square_destroy(t_square *sq_);
 t_intersection		square_intersect(t_ray r, void *sq_);
@@ -173,6 +202,8 @@ struct				s_cy_equat_sol
 	float			root2;
 	float			m1;
 	float			m2;
+	float			root;
+	float			m;
 };
 
 typedef struct s_cylinder *t_cylinder;
