@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:58:54 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 12:48:39 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:53:48 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_tup		color_at(t_world w, t_ray r)
 {
 	t_tup			c;
 	t_intersection	xs;
-	t_intersection	rs;
-	t_tup			eye;
 
 	xs = intersect_world(w, r);
 	if (xs.type == NO_INTERSECTION)
@@ -51,7 +49,7 @@ void		render_bmp(t_world w)
 	write_bmp("screenshot.bmp", &canvas);
 }
 
-void		render(int argc, char **argv, t_world w)
+void		render(int argc, t_world w)
 {
 	if (argc == 3)
 	{

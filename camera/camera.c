@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:46:41 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 15:47:00 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:50:10 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_camera	camera(int hsize, int vsize, float fov, t_matrice tr)
 {
 	t_camera	c;
-	float		aspect_ratio;
 
 	c = malloc(sizeof(struct s_camera));
 	c->vsize = vsize;

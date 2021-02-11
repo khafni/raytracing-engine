@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 18:18:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 10:24:40 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:52:53 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ struct				s_square
 	t_tup			color;
 };
 
-t_square_base		square_base_get(t_ray r, t_square sq, t_intersection intr);
+t_square_base		square_base_get(t_square sq, t_intersection intr);
 t_square			square(t_tup center, t_tup n, double s_size, t_tup col);
 void				square_destroy(t_square *sq_);
 t_intersection		square_intersect(t_ray r, void *sq_);

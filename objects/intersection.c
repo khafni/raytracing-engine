@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 19:00:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 10:27:13 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 19:13:27 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_intersection	intersect(void *shape, t_shape_type type, t_ray r)
 {
 	t_intersection inter;
 
+	inter = intersection(NULL, 0, NO_INTERSECTION);
 	if (type == SHAPE_TYPE_SPHERE)
 		inter = sphere_intersect(r, shape);
 	else if (type == SHAPE_TYPE_PLANE)

@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:27:29 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/10 15:47:30 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:50:36 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VIEW_TRANSFORM_H
 # include "../matrix/matrices.h"
 
-t_matrice	view_transform(t_tup from, t_tup to, t_tup up);
+t_matrice	view_transform(t_tup from, t_tup to);
 
 typedef struct s_camera	*t_camera;
 

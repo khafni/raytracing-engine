@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 08:34:46 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 10:26:04 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:52:21 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ t_intersection	cylinder_intersect(t_ray r, void *cy_)
 {
 	t_cylinder		cy;
 	t_intersection	inter;
-	double			radius;
 	t_cy_equat_sol	sol;
 
 	cy = ((t_cylinder)cy_);

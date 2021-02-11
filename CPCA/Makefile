@@ -5,16 +5,10 @@ OBJS = $(SOURCES:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 NAME	= CPCA.a
 CC	 = gcc
-FLAGS	 = -g
-LFLAGS	 = -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -lm
 all:$(NAME)
 $(NAME):
 	gcc $(CFLAGS) -c $(SRCS)
 	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
-bonus:
-	gcc $(CFLAGS) -c $(SRCBS)
-	ar rc $(NAME) $(OBBS)
 	ranlib $(NAME)
 clean:
 	rm -f $(OBJS)

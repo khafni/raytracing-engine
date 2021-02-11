@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:35:28 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 14:23:40 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:54:27 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int		main(int argc, char **argv)
 
 	parse_syntax(argc, argv);
 	w = get_data_from_rt(argc, argv);
-	render(argc, argv, w);
+	render(argc, w);
 	return (0);
 }

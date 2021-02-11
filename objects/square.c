@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:15:30 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 09:08:10 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:53:06 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_square			square(t_tup center, t_tup n, double s_size, t_tup col)
 	return (sq);
 }
 
-t_square_base		square_base_get(t_ray r, t_square sq, t_intersection intr)
+t_square_base		square_base_get(t_square sq, t_intersection intr)
 {
 	t_square_base b;
 
@@ -64,7 +64,7 @@ t_intersection		square_intersect(t_ray r, void *sq_)
 		plane_destroy(p);
 		return (intr);
 	}
-	sb = square_base_get(r, sq, intr);
+	sb = square_base_get(sq, intr);
 	if (check_projection(sb, sq))
 	{
 		intr.shape = sq_;

@@ -6,19 +6,18 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 14:28:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 17:19:41 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:50:29 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "view_transform.h"
 
-t_matrice	view_transform(t_tup from, t_tup to, t_tup up)
+t_matrice	view_transform(t_tup from, t_tup to)
 {
 	t_matrice	orient;
 	t_tup		forward;
 	t_tup		left;
 	t_tup		true_up;
-	t_matrice	tmp;
 
 	orient = identity_matrix(4, 4);
 	forward = tup_norm(to);
