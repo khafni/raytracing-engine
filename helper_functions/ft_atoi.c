@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 23:11:59 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/12 11:08:26 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/12 11:31:43 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	neg = 1;
-	if (ft_strlen(str) > 10)
+	if (ft_strlen(str) > 8)
 		return (-1);
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
