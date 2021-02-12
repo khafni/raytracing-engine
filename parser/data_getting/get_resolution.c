@@ -6,11 +6,29 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 10:48:59 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/12 11:35:52 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/12 18:24:08 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parser.h"
+
+void	update_cameras(t_world w)
+{
+	int			i;
+	t_camera	c;
+
+	i = 0;
+	if (!w->cameras->len)
+		return ;
+	while (i < w->cameras->len)
+	{
+		c = arrptr_get(w->cameras, i);
+		c->hsize = w->r_width;
+		c->vsize = w->r_height;
+		calc_pixel_size(c);
+		i++;
+	}
+}
 
 void	get_resolution(char *line, t_world w)
 {
@@ -24,4 +42,5 @@ void	get_resolution(char *line, t_world w)
 	if (w->r_width == -1 || w->r_width > 2560 || w->r_width < 0)
 		w->r_width = 2560;
 	free_split(r_es);
+	update_cameras(w);
 }
