@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 07:41:04 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 12:02:49 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/12 16:39:38 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	check_line_syntax(t_sxb sxb)
 	words = ft_split(sxb->f->str_buff->data, ' ');
 	if (words[0] == NULL)
 	{
+		if (sxb->f->str_buff->len && sxb->f->str_buff->data[0] == ' ')
+			sxb_set_error(sxb, "Error\nspace at the beginning of a line");
 		free_split(words);
 		return ;
 	}
