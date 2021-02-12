@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:58:54 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 18:53:48 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/12 08:47:05 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		render(int argc, t_world w)
 {
 	if (argc == 3)
 	{
+		w->is_mlx_or_bmp = BMP;
 		render_bmp(w);
 		world_destroy(w);
 	}
