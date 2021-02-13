@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:40:05 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/12 16:16:54 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/13 17:11:54 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	check_resolution(t_sxb sxb)
 		return ;
 	if (!ft_atoi(r_es[1]))
 		sxb_set_error(sxb, "Error\nwidth is null");
-	if (!ft_atoi(r_es[1]))
+	if (!ft_atoi(r_es[2]))
 		sxb_set_error(sxb, "Error\nheight is null");
 	sxb->r += 1;
 	free_split(r_es);

@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 18:06:00 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 18:06:22 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/13 16:27:10 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void				ft_putnbr_fd(int n, int fd);
 int					reverse_check(const char *haystack, const char *needle);
 double				ft_atof(const char *str);
 void				*ft_mem_grow(void *addr, size_t old_size, size_t new_size);
+int					atoi_protec(const char *str);
 #endif

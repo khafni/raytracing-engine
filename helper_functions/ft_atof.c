@@ -6,11 +6,23 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 17:51:40 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/11 10:36:02 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/13 17:53:52 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helper_functions.h"
+
+int			atof_digs_coun(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] && str[i] != '.')
+	{
+		i++;
+	}
+	return (i);
+}
 
 void		atof_helper(const char *str, double *val)
 {
@@ -37,17 +49,17 @@ double		ft_atof(const char *str)
 	i = 0;
 	val = 0;
 	neg = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '
+	|| str[i] == '-' || str[i] == '+' || str[i] == '0')
+	{
+		neg = ((str[i] == '-') ? -1 : 1);
 		i++;
-	if (str[i] == '-')
-		neg = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
+	}
+	if (atof_digs_coun(str + i) > 8)
+		return (1111111111);
 	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
 		val = val * 10 + str[i] - '0';
-		if (val > 9223372036854775807)
-			return (neg < 0 ? 0 : -1);
 		i++;
 	}
 	if (str[i] == '.')
