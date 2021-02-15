@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:38:41 by khafni            #+#    #+#             */
-/*   Updated: 2021/02/02 15:23:47 by khafni           ###   ########.fr       */
+/*   Updated: 2021/02/15 15:55:14 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	check_arguments(int argc, char **argv)
 		ft_putstr_fd("Error\nwrong number of arguments!", 2);
 		exit(EXIT_FAILURE);
 	}
-	if (argc == 2)
-		check_dot_rt(argv[1]);
+	check_dot_rt(argv[1]);
 	if (argc == 3)
 	{
 		if (strcmp(argv[2], "--save"))

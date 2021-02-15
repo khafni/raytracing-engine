@@ -6,9 +6,9 @@ LFLAGS	 = -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -lm
 
 all:$(NAME)
 $(NAME):
-	@echo "compiling miniRT"
 	@$(MAKE) -C CPCA
 	@$(MAKE) -C helper_functions
+	@echo "\033[0;32mcompiling miniRT"
 	@gcc $(CFLAGS) CPCA/CPCA.a helper_functions/HELPER_FUNCTIONS.a $(SRCS) -o $(NAME) $(LFLAGS)
 
 clean:
@@ -17,6 +17,6 @@ fclean:
 	@rm -f $(NAME)
 	@$(MAKE) -C CPCA fclean
 	@$(MAKE) -C helper_functions fclean
-	@echo "everything cleaned"
+	@echo "\033[0;33meverything cleaned"
 
 re : fclean all

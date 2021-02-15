@@ -7,12 +7,15 @@ NAME	= CPCA.a
 CC	 = gcc
 all:$(NAME)
 $(NAME):
-	gcc $(CFLAGS) -c $(SRCS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@echo "\033[1;32mcompiling CPCA static library"
+	@gcc $(CFLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 clean:
-	rm -f $(OBJS)
-	rm -f $(OBBS)
+	@echo "\033[0;33mclean CPCA obj files"
+	@rm -f $(OBJS)
+	@rm -f $(OBBS)
 fclean: clean
-	rm -f $(NAME)
+	@echo "clean everything related to CPCA library"
+	@rm -f $(NAME)
 re: fclean all

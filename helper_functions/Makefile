@@ -7,12 +7,16 @@ NAME	= HELPER_FUNCTIONS.a
 CC	 = gcc
 all:$(NAME)
 $(NAME):
-	gcc $(CFLAGS) -c $(SRCS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@echo "\033[1;32mcompiling helper_functions static library"
+	@gcc $(CFLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 clean:
-	rm -f $(OBJS)
-	rm -f $(OBBS)
+	@echo "cleaning helper functions objs files"
+	@rm -f $(OBJS)
+	@rm -f $(OBBS)
 fclean: clean
-	rm -f $(NAME)
+	@echo "\033[0;33mcleaning everything helper functions related"
+	@rm -f $(NAME)
 re: fclean all
+	@echo "\033[0;33mremaking goes brrrrrr"
