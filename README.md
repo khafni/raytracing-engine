@@ -4,7 +4,7 @@ that enables me to set pixels colors on screen in a buffered way and can be used
 into a bitmap image
 everything made from scratch
 
-##engine features:
+## engine features:
 1. rendering 5 primitves shapes:
   . sphere
   . infinite plan
