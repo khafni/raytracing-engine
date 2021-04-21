@@ -1,6 +1,7 @@
 # raytracer engine
 ray tracer engine that only uses the CPU with no external libraries but a primitive school opengl context
-that enables me to set pixels colors on screen in a buffered way
+that enables me to set pixels colors on screen in a buffered way and can be used with no libraries by making the engine outputs the rendering result
+into a bitmap image
 everything made from scratch
 ##engine features:
 1. rendering 5 primitves shapes:
